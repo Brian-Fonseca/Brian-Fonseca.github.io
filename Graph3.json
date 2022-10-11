@@ -1,0 +1,13 @@
+{
+  "data": {"url": "https://raw.githubusercontent.com/Brian-Fonseca/Assignment-2/main/Happiness%20Raw%20Data.csv"},
+  "mark": "boxplot",
+  "encoding": {
+    "x": {"field": "Regions2", "type": "nominal"},
+    "color": {"field": "Regions2", "type": "nominal", "legend": null},
+    "y": {
+      "field": "Happiness Scores",
+      "type": "quantitative",
+      "scale": {"zero": false}
+    }
+  }
+}

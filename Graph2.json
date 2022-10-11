@@ -1,0 +1,10 @@
+{
+  "data": {"url": "https://raw.githubusercontent.com/Brian-Fonseca/Assignment-2/main/Graph2data.json"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"aggregate": "sum", "field": "Total"},
+    "y": {"field": "Country", "sort": {"encoding": "x"}},
+    "color": {"field": "Factor"},
+  }
+}
+

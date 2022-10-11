@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Autralia vs World Happiness scores from years 2015-2022",
+  "data": {"url": "https://raw.githubusercontent.com/Brian-Fonseca/Assignment-2/main/Happiness%20Raw%20Data.csv"},
+"layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {"field": "Year1", "type": "temporal" , "title" : "Year"},
+        "y": {"field": "Australia Score", "type": "quantitative", "scale": {"domain": [5.0, 7.6]}},
+        "color": {"datum": "Australia"}
+      }
+    },
+    {
+       "mark": "line",
+      "encoding": {
+        "x": {"field": "Year1", "type": "temporal"},
+        "y": {"field": "World Average", "type": "quantitative", "title" : "Happines Index Scores"},
+        "color": {"datum": "World"}
+      }
+    }
+    
+  ]
+}

@@ -1,0 +1,100 @@
+{
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"width": 500,
+"height": 400,
+"title": "Sized Scatterplot for World Regions",
+"data": {
+"url": "https://raw.githubusercontent.com/Brian-Fonseca/Assignment-2/main/Happiness%20Raw%20Data.csv"
+},
+"params":[
+    {
+    "name": "Region_selection",
+    "bind": {
+    "input": "select",
+    "options": [
+    null, "Australia and New Zealand", "Western Europe", "Sub-Saharan Africa", "Southern Asia",
+"South Eastern Asia", "North America", "Middle East and North Africa", "Latin American And the Carribean", "Eastern Asia", "Central And Eastern Europe"
+],
+    "labels":[
+    "Show All","Australia and New Zealand", "Western Europe", "Sub-Saharan Africa", "Southern Asia",
+"South Eastern Asia", "North America", "Middle East and North Africa", "Latin American And the Carribean", "Eastern Asia", "Central And Eastern Europe"
+    
+    ],
+"name": "Region Selection: "
+}
+
+},
+{
+"name": "Happiness_Score_Above",
+"value": 0,
+"bind": {
+"input": "range",
+"min": 0.0,
+"max": 8.0,
+"step": 0.5,
+"name": "Minimum Happiness: "
+}
+}
+
+],
+"transform": [
+
+{"filter": "Region_selection == null || datum.Regionsp == Region_selection"},
+{"filter": "datum.HappinessScores > Happiness_Score_Above"}
+
+],
+
+"mark": "circle",
+"encoding": {
+"x": {
+"field": "GDP",
+"type": "quantitative",
+"title": "Gross Domestic Profit" , "scale": {"domain": [0.0, 2.3]}},
+
+
+"y": {
+"field": "SocialSupport",
+"type": "quantitative" , "scale": {"domain": [0.0, 1.44]},
+"title": "Social Support"
+},
+
+"color": {
+"field": "Regionsp",
+"type": "nominal",
+"title": "Regions",
+"scale": {
+    "domain": [
+"Australia and New Zealand", "Western Europe", "Sub-Saharan Africa", "Southern Asia",
+"South Eastern Asia", "North America", "Middle East and North Africa", 
+"Latin American And the Carribean", "Eastern Asia", "Central And Eastern Europe"
+],
+
+"range": [
+"#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00", "#cab2d6", "#6a3d9a"
+]
+
+
+}
+
+},
+"opacity": {"value": 0.4},
+"size": {
+"field": "HappinessScores",
+"type": "quantitative",
+"scale": {
+"type": "threshold",
+"domain": [3.0, 4.0, 5.0,6.0,7.0],
+"range": [20, 50, 150, 200,450, 800]
+},
+"legend": {"format": ".1s"}
+},
+"tooltip": [
+{"field": "Regionsp", "type": "nominal"},
+{"field": "Happiness Scores", "type": "quantitative", "format": ","},
+{"field": "GDP", "type": "quantitative", "format": ","},
+{"field": "SocialSupport", "type": "quantitative", "format": ","}
+
+
+]
+}
+}
